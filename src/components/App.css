@@ -1,0 +1,14 @@
+@font-face {
+  font-family: marvelFont;
+  src: url(Marvel-font.ttf);
+}
+.title {
+  font-family: marvelFont;
+  font-size: 30px;
+  COLOR: WHITE;
+  background-color: RED;
+  width: 170px;
+  height: 30px;
+  margin-bottom: 10px;
+  
+}
