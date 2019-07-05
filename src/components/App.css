@@ -1,14 +1,173 @@
 @font-face {
   font-family: marvelFont;
-  src: url(Marvel-font.ttf);
+  src: url(../media/Marvel-font.ttf);
+}
+#root {
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 70%;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #212629;
+}
+.container {
+  background-color: white;
 }
 .title {
   font-family: marvelFont;
-  font-size: 30px;
-  COLOR: WHITE;
+  font-size: 60px;
+  COLOR: white;
+  padding: 0;
+  margin: 0;
+  font-kerning: initial;
+  height: 59px;
+  /* width: 260px; */
+  
+}
+.linkTitle {
   background-color: RED;
-  width: 170px;
+  align-self: center;
+}
+/*-------- NAVBAR --------*/
+.navbar-container {
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1.5px solid black;
+  margin-top: 1px;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+.navbar a {
+  color: white;
+  margin: 0 10px 0 10px;
+}
+.navbar-link {
+  font: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
+  font-size: 23px;
+  color: lightgray;
+  text-decoration: none;
+  margin: 0;
+}
+.navbar-link:hover {
+  color: white;
+}
+.search-button {
+  background-image: url('https://abeon-hosting.com/images/active-cliparts-23.png');
+  background-size: 29px;
+  background-color: transparent;
+  width: 26px;
+  height: 26px;
+  border: none;
+}
+/*-------- Collapse searchBar --------*/
+.collapse {
+  width: 100%;
+}
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2px;
+}
+.form-inline {
+  height: 32px;
+  width: px;
+  align-self: center;
+}
+.form-control, .custom-select, .btn-light{
+  background-color: #ffffff45;
+  color: white;
+  padding: 0px;
+  margin-left: 3px;
   height: 30px;
-  margin-bottom: 10px;
+  border: none;
+}
+#tuvieja::placeholder {
+  color: white;
+  padding-left: 5px;
+}
+#inputGroupSelect01 {
+  width: 110px;
+}
+.btn-light {
+  width: 70px;
+}
+/*-------- BODY --------*/
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+
+}
+/*-------- HOME --------*/
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  background-color: darkgrey;
+}
+/*-------- CAROUSEL --------*/
+.bd-example {
+  width: 100%;
+  /* max-height: 414px; */ 
+  border-bottom: 2px solid black;
+}
+.carousel-item {
+  height: 410px;
+}
+.d-block {
+  width: 100%;
+  height: 100%;
+}
+.carousel-item h5 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: black;
+}
+.carousel-control-next {
+  margin-top: 190px;
+  width: 40px;
+  height: 20px;
+  opacity: .7;
+}
+.carousel-control-next-icon {
+  width: 40px;
+  height: 40px;
+}
+.carousel-control-prev {
+  margin-top: 190px;
+  width: 40px;
+  height: 20px;
+  opacity: .7;
+}
+.carousel-control-prev-icon {
+  width: 40px;
+  height: 40px;
+}
+.carousel-indicators li {
+  height: 3.5px;
+  width: 35px;
+}
+.footer {
+}
+#logo {
+  width: 50px;
   
 }

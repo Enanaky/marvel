@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default function Details() {
+export default function Help() {
   
   return (
     <div className="container">
-      <p>details</p>
+      <p>GUIDE IMAGE BACKGRAOUND ONLY</p>
+      
     </div>
   );
 }

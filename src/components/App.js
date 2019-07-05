@@ -1,5 +1,5 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
 
@@ -7,9 +7,16 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Grid from './Grid';
 import Details from './Details';
+import About from './About';
+import Help from './Help';
+import Footer from './Footer';
+
+import getRandomData from '../firstData/initialData';
+
 
 function App() {
-  const axios = require('axios');
+  // const axios = require('axios');
+  
   //
   // axios.get('https://gateway.marvel.com:443/v1/public/events/29/characters?limit=100&apikey=10ac447eeaab932197ccab181c31c749')
   //   .then(function (response) {
@@ -44,16 +51,16 @@ function App() {
   // async function getData(e) {
   //   const event = await axios.get(`http://gateway.marvel.com/v1/public/events/${e}?${apiKey}`)
   //     .then(function (res) {
-  //       console.log('event '+e, res);        
-  //       axios.get(res.data.data.results[0].characters.collectionURI+orderLimit+apiKey)
-  //         .then(function(res) {
-  //           console.log('characters '+e,res);            
-  //         })
-  //       // return charactersEvent;
+        // console.log('event '+e, res.data.data.results[0]);        
+        // axios.get(res.data.data.results[0].characters.collectionURI+orderLimit+apiKey)
+        //   .then(function(res) {
+        //     console.log('characters '+e,res);            
+        //   })
+        // return charactersEvent;
   //     })
     
   // }
-  // getData(29);
+  // getData(229);
   // const apiKey = '&apikey=10ac447eeaab932197ccab181c31c749';
   // const orderLimit = '?orderBy=name&limit=100';
   
@@ -68,20 +75,20 @@ function App() {
   // }
   // getData(initialCharacters);
 
-  // console.log('events: ', initialEvents);
-  // console.log('characters: ', initialCharacters);
-
+  const initialRandomData = getRandomData();
+  const [firstData, setFirstData] = useState(initialRandomData);
+  // console.log(initialRandomData);
   
   return (
     <div className="app">
-      <h1 className="title">MARVEL HEROES</h1>
+      <Link className="linkTitle" to="/"><h1 className="title"> MARVEL HEROES</h1></Link>
       <Navbar />
       <div className="body">
         <Switch>
           <Route 
             exact path="/" 
             render={props => <Home {...props}
-            //pass props here
+            initialRandomData={initialRandomData}
             />}
           />
           <Route 
@@ -96,8 +103,21 @@ function App() {
             //pass props here
             />}
           />
+          <Route 
+            path="/About" 
+            render={props => <About {...props}
+            //pass props here
+            />}
+          />
+          <Route 
+            path="/Help" 
+            render={props => <Help {...props}
+            //pass props here
+            />}
+          />
         </Switch>
       </div>
+      <Footer />
     </div>
   );
 }
