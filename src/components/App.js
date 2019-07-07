@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
@@ -12,77 +12,99 @@ import Help from './Help';
 import Footer from './Footer';
 
 import getRandomData from '../firstData/initialData';
+import marvelApi from '../services/marvelApi';
+import capital_letters from '../services/utils';
 
 
 function App() {
-  // const axios = require('axios');
-  
-  //
-  // axios.get('https://gateway.marvel.com:443/v1/public/events/29/characters?limit=100&apikey=10ac447eeaab932197ccab181c31c749')
-  //   .then(function (response) {
-  //   console.log(response);
-  // })
-  //All the events
-  // axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=75&&apikey=10ac447eeaab932197ccab181c31c749')
-  //   .then(function (response) {
-  //   console.log("all events",response);
-  // })
-  //0-30 events
-  // axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=10&apikey=10ac447eeaab932197ccab181c31c749')
-  // .then(function (response) {
-  //   console.log("first 30 events",response);
-  //   })
-  // //31-60 events
-  // axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=30&offset=30&apikey=10ac447eeaab932197ccab181c31c749')
-  //   .then(function (response) {
-  //   console.log("31-60",response);
-  //   })
-  // //60-75 events
-  // axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=15&offset=60&apikey=10ac447eeaab932197ccab181c31c749')
-  //   .then(function (response) {
-  //   console.log("60-75",response);
-  //   })
-  // http://gateway.marvel.com/v1/public/events/314/characters?orderBy=name&limit=100&apikey=10ac447eeaab932197ccab181c31c749
-
-
-  // const apiKey = '&apikey=10ac447eeaab932197ccab181c31c749';
-  // const orderLimit = '?orderBy=name&limit=100';
-
-  // async function getData(e) {
-  //   const event = await axios.get(`http://gateway.marvel.com/v1/public/events/${e}?${apiKey}`)
-  //     .then(function (res) {
-        // console.log('event '+e, res.data.data.results[0]);        
-        // axios.get(res.data.data.results[0].characters.collectionURI+orderLimit+apiKey)
-        //   .then(function(res) {
-        //     console.log('characters '+e,res);            
-        //   })
-        // return charactersEvent;
-  //     })
-    
-  // }
-  // getData(229);
-  // const apiKey = '&apikey=10ac447eeaab932197ccab181c31c749';
-  // const orderLimit = '?orderBy=name&limit=100';
-  
-
-  // async function getData(characters) {
-  //   characters.forEach(heroe => {
-  //     axios.get(`https://gateway.marvel.com:443/v1/public/characters/${heroe.id}?${apiKey}`)
-  //       .then(function (res) {
-  //         console.log(res.data.data.results[0]);        
-  //       });   
-  //   });
-  // }
-  // getData(initialCharacters);
-
+  //first data used by the carousels.
   const initialRandomData = getRandomData();
-  const [firstData, setFirstData] = useState(initialRandomData);
-  // console.log(initialRandomData);
   
+  const [characters, setCharacters] = useState([]);
+  const [events, setEvents] = useState([]);
+  
+  console.log(capital_letters('iron man'));
+   
+  function searchHandler(data, option) {
+    let gotIt = false;
+    let card = null;
+    
+    if (characters.length === 0) {
+      searchIt(data, option);
+    } else {
+      console.log('quiero: ', data);
+      
+      const copy = characters.map(character => {
+        if(character.hero.name === capital_letters(data)) {
+          console.log('yala');          
+          gotIt = true;
+          return {
+            ...character,
+            visible: true,
+          };       
+        }
+        return character;      
+      });
+      setCharacters(copy);
+      if (gotIt === false) {  
+        searchIt(data, option);
+      }
+    }
+  }
+
+  async function searchIt(data, option) {
+    switch (option) {
+      case "character": 
+        try{
+          const character = await marvelApi.getCharacterByName(data);
+          console.log(character);
+          if (character.data.results.length > 0) {
+            const copyCharacters = [...characters, {hero: character.data.results[0], visible: true} ];
+            setCharacters(copyCharacters);           
+            
+          } else {
+            console.log('error');
+
+          }
+        }catch(err) {
+          console.log(err);          
+        }
+      break;
+      case "event":
+        try{
+          const event = await marvelApi.getEventById(data);
+        }catch(err) {
+          console.log(err);
+        }
+        break;
+      case "all-events":
+        console.log('todos los eventos');
+        
+        break;
+      default:
+        break;
+    }
+  }
+  function hideCard(name) {
+    const copy = characters.map(character => {
+      if(character.hero.name === name) {
+        return {
+          ...character,
+          visible: false,
+        };
+      }
+      return character;
+    });
+
+    setCharacters(copy); 
+  }
+
+  useEffect(() => console.log('state => ',characters));
+
   return (
     <div className="app">
       <Link className="linkTitle" to="/"><h1 className="title"> MARVEL HEROES</h1></Link>
-      <Navbar />
+      <Navbar searchHandler={searchHandler}/>
       <div className="body">
         <Switch>
           <Route 
@@ -93,14 +115,17 @@ function App() {
           />
           <Route 
             path="/Grid" 
-            render={props => <Grid {...props}
-            //pass props here
-            />}
+            render={props => (
+              <Grid {...props}
+                characters={characters}
+                hideCard={hideCard}
+              />
+            )}
           />
           <Route 
             path="/Details" 
             render={props => <Details {...props}
-            //pass props here
+            events={events}
             />}
           />
           <Route 
