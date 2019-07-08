@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class SearchBar extends Component {
+export default class SearchBar extends React.Component {
 
   option = React.createRef();
   data = React.createRef();
 
-  handleSubmit = e => {
+  handleSubmit = e => {    
     //Stop the submitting behavior.
     e.preventDefault();
     //Take the data submitted.
@@ -29,7 +29,7 @@ export default class SearchBar extends Component {
             required
           />
           <select className="custom-select" id="inputGroupSelect01" ref={this.option}>
-            <option default value="character">Character</option>
+            <option value="character">Character</option>
             <option value="event">Event</option>
             <option value="all-events">All Events</option>
           </select>

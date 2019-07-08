@@ -5,7 +5,8 @@ import './App.css';
 
 import Navbar from './Navbar';
 import Home from './Home';
-import Grid from './Grid';
+import Characters from './Characters';
+import Events from './Events';
 import Details from './Details';
 import About from './About';
 import Help from './Help';
@@ -22,21 +23,27 @@ function App() {
   
   const [characters, setCharacters] = useState([]);
   const [events, setEvents] = useState([]);
-  
-  console.log(capital_letters('iron man'));
-   
-  function searchHandler(data, option) {
-    let gotIt = false;
-    let card = null;
+  const [details, setDetails] = useState();
     
+  function searchHandler(data, option) {
+    if (option === 'character') {
+      checkCharactersState(data, option);
+      console.log('quiero un char');      
+    };
+    if (option === 'event') {
+      checkEventsState(data, option);
+      console.log('quiero un evento');      
+    }
+  }
+
+  function checkCharactersState(data, option) {
+    let gotIt = false;
     if (characters.length === 0) {
       searchIt(data, option);
-    } else {
-      console.log('quiero: ', data);
-      
+    } else {      
       const copy = characters.map(character => {
-        if(character.hero.name === capital_letters(data)) {
-          console.log('yala');          
+        if(character.data.name === capital_letters(data)) {
+          console.log(' character yala');          
           gotIt = true;
           return {
             ...character,
@@ -51,6 +58,28 @@ function App() {
       }
     }
   }
+  function checkEventsState(data, option) {
+    let gotIt = false;
+    if (events.length === 0) {
+      searchIt(data, option);
+    } else {      
+      const copy = events.map(event => {
+        if(event.data.title === capital_letters(data)) {
+          console.log('evento yala');          
+          gotIt = true;
+          return {
+            ...event,
+            visible: true,
+          };       
+        }
+        return events;      
+      });
+      setEvents(copy);
+      if (gotIt === false) {  
+        searchIt(data, option);
+      }
+    }
+  }
 
   async function searchIt(data, option) {
     switch (option) {
@@ -59,12 +88,10 @@ function App() {
           const character = await marvelApi.getCharacterByName(data);
           console.log(character);
           if (character.data.results.length > 0) {
-            const copyCharacters = [...characters, {hero: character.data.results[0], visible: true} ];
-            setCharacters(copyCharacters);           
-            
+            const copyCharacters = [...characters, {data: character.data.results[0], visible: true} ];
+            setCharacters(copyCharacters);
           } else {
-            console.log('error');
-
+            console.log('character search error');//INSERT POPUPT HERE
           }
         }catch(err) {
           console.log(err);          
@@ -72,7 +99,15 @@ function App() {
       break;
       case "event":
         try{
-          const event = await marvelApi.getEventById(data);
+          const event = await marvelApi.getEventByName(data);
+          console.log(event.data.results[0]);
+          if (event.data.results.length > 0) {
+            const copyEvents = [...events, {data: event.data.results[0], visible: true} ];
+            setEvents(copyEvents);
+          } else {
+            console.log('event search error');//INSERT POPUPT HERE
+          }
+          
         }catch(err) {
           console.log(err);
         }
@@ -85,9 +120,9 @@ function App() {
         break;
     }
   }
-  function hideCard(name) {
-    const copy = characters.map(character => {
-      if(character.hero.name === name) {
+  function hideCard(id) {
+    const copyCharacters = characters.map(character => {
+      if(character.data.id === id) {
         return {
           ...character,
           visible: false,
@@ -95,11 +130,26 @@ function App() {
       }
       return character;
     });
-
-    setCharacters(copy); 
+    setCharacters(copyCharacters);
+    const copyEvents = events.map(event => {
+      if(event.data.id === id) {
+        return {
+          ...event,
+          visible: false,
+        };
+      }
+      return event;
+    });
+    setEvents(copyEvents);
   }
 
-  useEffect(() => console.log('state => ',characters));
+  
+  useEffect(() => {
+    console.log('characters => ', characters);
+    console.log('events => ', events);
+    console.log('details => ', details);
+    
+  });
 
   return (
     <div className="app">
@@ -114,10 +164,19 @@ function App() {
             />}
           />
           <Route 
-            path="/Grid" 
+            path="/Characters" 
             render={props => (
-              <Grid {...props}
+              <Characters {...props}
                 characters={characters}
+                hideCard={hideCard}
+              />
+            )}
+          />
+          <Route 
+            path="/Events" 
+            render={props => (
+              <Events {...props}
+                events={events}
                 hideCard={hideCard}
               />
             )}
@@ -125,7 +184,7 @@ function App() {
           <Route 
             path="/Details" 
             render={props => <Details {...props}
-            events={events}
+            details={details}
             />}
           />
           <Route 

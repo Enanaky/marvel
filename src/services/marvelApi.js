@@ -6,6 +6,12 @@ const getEventById = (id) => {
 	return fetch(`http://gateway.marvel.com/v1/public/events/${id}?${apiKey}`)
 		.then(res => res.json());	
 }
+const getEventByName = (name) => {
+	return fetch(`http://gateway.marvel.com/v1/public/events?name=${name}&${apiKey}`)
+		.then(res => res.json());	
+}
+// https://gateway.marvel.com:443/v1/public/events?name=Infinity%20war&apikey=10ac447eeaab932197ccab181c31c749
+
 const getCharacterById = (id) => {
 	return fetch(`http://gateway.marvel.com/v1/public/characters/${id}?${apiKey}`)
 		.then(res => res.json());
@@ -17,7 +23,8 @@ const getCharacterByName = (name) => {
 // https://gateway.marvel.com:443/v1/public/characters?name=thor&apikey=10ac447eeaab932197ccab181c31c749
 
 export default {
-	getEventById,
+      getEventById,
+      getEventByName,
 	getCharacterById,
 	getCharacterByName,
 };

@@ -2,18 +2,17 @@ import React from 'react';
 
 import Card from './Card';
 
-export default function Gird(props) {
+export default function Characters(props) {
   
   function displayData(props) {
     const imgUrl = 'thumbnail.path';
     const extension = 'thumbnail.extension';
     const imgFormat = '/standard_xlarge.';
-    const collection = [];
 
     return (props.characters.map(item => {  
       return item.visible && (
         <Card 
-          key={item.hero.name}
+          key={item.data.name}
           item={item}
           imgUrl={imgUrl}
           extension={extension}

@@ -61,6 +61,9 @@
 .navbar-link:hover {
   color: white;
 }
+.active {
+  color: red !important;
+}
 .search-button {
   background-image: url('https://abeon-hosting.com/images/active-cliparts-23.png');
   background-size: 29px;
