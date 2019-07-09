@@ -8,13 +8,13 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 100%;
+  height: 679px;
 }
 .app {
   display: flex;
   flex-direction: column;
   background-color: #323536;
-  width: 70%;
+  width: 92%;
   border: 2px solid black;
   border-radius: 5px;
   margin: 10px 0 10px 0;
@@ -24,14 +24,12 @@
 }
 .title {
   font-family: marvelFont;
-  font-size: 60px;
+  font-size: 40px;
   COLOR: white;
   padding: 0;
   margin: 0;
   font-kerning: initial;
-  height: 59px;
-  /* width: 260px; */
-  
+  height: 40px;  
 }
 .linkTitle {
   background-color: RED;
@@ -53,7 +51,7 @@
 }
 .navbar-link {
   font: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
-  font-size: 15px;
+  font-size: 10px;
   color: lightgray;
   text-decoration: none;
   margin: 0;
@@ -67,32 +65,14 @@
 }
 .search-button {
   background-image: url('https://abeon-hosting.com/images/active-cliparts-23.png');
-  background-size: 29px;
+  background-size: 20px;
   background-color: transparent;
-  width: 26px;
-  height: 26px;
+  width: 16px;
+  height: 16px;
   border: none;
 }
 .navbar.navbar-light {
   padding: 8px 5px;
-}
-@media only screen and (min-width: 600px) {
-  .navbar-link {
-      font-size: 18px;
-  }
-  .navbar a {
-    color: white;
-    margin: 0 6px 0 6px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .navbar-link {
-      font-size: 23px;   
-  }
-  .navbar a {
-    color: white;
-    margin: 0 6px 0 6px;
-  }
 }
 /*-------- Collapse searchBar --------*/
 .collapse {
@@ -103,12 +83,12 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: 20px;
   margin-bottom: 2px;
   border-top: 1px solid black;
 }
 .form-inline {
   height: 32px;
-  /* width: 100%; */
   align-self: center;
   display: flex;
   justify-content: center;
@@ -117,11 +97,19 @@
   background-color: #ffffff45;
   color: white;
   padding: 0px;
-  width: 30%;
+  /* width: 20%; */
   margin-left: 3px;
-  height: 30px;
+  height: 20px;
   border: none;
+  font-size: 13px;
 }
+#tuvieja {
+width: 25%;
+}
+#inputGroupSelect01 {
+  width: 34%!important;
+}
+
 #tuvieja::placeholder {
   color: white;
   padding-left: 5px;
@@ -130,7 +118,7 @@
   width: 110px;
 }
 .btn-light {
-  width: 70px;
+  width: 20%;
 }
 /*-------- BODY --------*/
 .body {
@@ -155,7 +143,7 @@
 /*-------- CAROUSEL --------*/
 .bd-example {
   width: 100%;
-  height: 50%; 
+  /* height: 45%;  */
   border-bottom: 2px solid black;
 }
 .carousel-item {
@@ -217,7 +205,241 @@
   height: 3.5px;
   width: 35px;
 }
-@media only screen and (min-width: 600px) {
+/*-------- GRID -------*/
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.582);
+  padding: 2px;
+  overflow: scroll;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  margin: 0.2%;
+  width: 24.6%;
+  height: 24%;
+  border: none;
+  background-color: #7c4848e5;
+  border: 2px solid rgb(10, 10, 10);
+  /* border-radius: 4px; */
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+}
+.card-img-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  padding: 0px;
+} 
+.card-link {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 90%;
+  order: 2;
+}
+.card-title {
+  order: 2;
+  /* justify-self: center; */
+  font-family: marvelFont;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; 
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;  
+  line-height: 0.7;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.7px;
+  -webkit-text-stroke-color: black;
+}
+.close {
+  align-self: flex-end;
+  object-position: 10px;
+  order: 1;
+  color: #000;
+  text-shadow: none;
+  opacity: 0.6;
+  line-height: 0.49;
+}
+.close:hover {
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.7px;
+  -webkit-text-stroke-color: black;
+}
+/*-------- DETAILS -------*/
+.details-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.452);
+  padding: 2px;
+  font-family: fantasy, Arial, Helvetica, sans-serif;
+
+}
+.details-img {
+  width: 70%;  
+  border: 3px solid black;
+  border-radius: 7px;
+}
+.details-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(57, 58, 58, 0.959);
+  width: 100%;
+  height: 100%;
+  margin: 4px;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 7px;
+}
+.details-title {
+  font-family: marvelFont;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; 
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  margin: 2px 0 5px 0;  
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.7px;
+  -webkit-text-stroke-color: black;
+}
+.details-description {
+  padding: 0 5px 0 7px;
+  font-weight: bold;
+  color: rgb(190, 189, 189);
+  font-size: 13px;
+}
+.contains {
+  align-self: flex-start;
+  color: rgb(190, 189, 189);
+  padding-left: 5px;
+  margin-bottom: 0;
+  font-size: 16px;
+  text-decoration: underline;
+}
+.details-ul {
+  color: rgb(190, 189, 189);
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  justify-content: center;
+  width: 100%;
+  list-style: none;
+}
+.details-ul li {
+  font-size: 11px;
+  margin: 5px 5px 0 2px;
+}
+.details-ul li:first-child {
+  margin-left: 10px;
+}
+
+/*-------- HELP -------*/
+.help {
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  overflow: scroll;
+}
+.help img {
+  width: 100%;
+}
+/*-------- FOOTER -------*/
+.footer {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leyend1 {
+  color: white;
+  font-size: 7px;
+  font-weight: bold;
+  margin: 0;
+}
+.leyend2 {
+  color: rgb(238, 9, 9);
+  font-size: 6px;
+  margin: 0;
+}
+.footer-links {
+  margin: 5px;
+}
+#logo {
+  width: 35px; 
+  margin: 0 7px;
+}
+@media only screen and (min-width: 400px) {
+  /*--------ROOT--------*/
+  #root {
+    height: 100vh;
+  }
+  /*--------APP--------*/
+  .app {
+    width: 85%;
+  }
+  /*--------TITLE--------*/
+  .title {
+    font-size: 50px;
+    height: 50px;
+  }
+  /*--------NAVBAR--------*/
+  .navbar-link {
+    font-size: 14px;
+  }
+  .navbar a {
+    color: white;
+    margin: 0 6px 0 6px;
+  }
+  .search-button {
+    background-size: 22px;
+    width: 20px;
+    height: 20px;
+  }
+  /*--------SEARCHBAR--------*/
+  .form-container {
+    height: 30px; 
+  }
+  .form-control, .custom-select, .btn-light {
+    height: 30px;
+    width: 20%;
+    font-size: 13px;
+  }
+  #tuvieja {
+    width: 25%;
+  }
+  #inputGroupSelect01 {
+    width: 34%!important;
+  }
+  
+  #tuvieja::placeholder {
+    color: white;
+    padding-left: 5px;
+  }
+  #inputGroupSelect01 {
+    width: 110px;
+  }
+  .btn-light {
+    width: 20%;
+  }
+  /*--------CAROUSEL--------*/
   .carousel-item {
     height: 300px;
   }
@@ -265,8 +487,209 @@
     height: 3.5px;
     width: 35px;
   }
+  /*--------CARD--------*/
+  .card-title {
+    font-size: 19px;
+  }
+  /*--------DETAILS--------*/
+  .details-title {
+    font-size: 35px;
+  }
+  .details-description {
+    font-size: 16px;
+  }
+  .contains {
+    font-size: 19px;
+  }
+  .details-ul {
+    padding-left: 0px;
+  }
+  .details-ul li {
+    font-size: 13.7px;
+    margin: 5px 5px 0 2px;
+  }
+  .details-ul li:first-child {
+    margin-left: 0px;
+  }
+  /*--------FOOTER--------*/
+  .leyend1 {
+    color: white;
+    font-size: 9px;
+    margin: 0;
+  }
+  .leyend2 {
+    color: rgb(238, 9, 9);
+    font-size: 8 px;
+    margin: 0;
+  }
+  .footer-links {
+    margin: 5px;
+  }
+  #logo {
+    width: 41px; 
+    margin: 0 7px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  /*--------ROOT--------*/
+  #root {
+    height: 100vh;
+  }
+  /*--------APP--------*/
+  .app {
+    width: 75%;
+  }
+  /*--------TITLE--------*/
+  .title {
+    font-size: 60px;
+    height: 60px;
+  }
+  /*--------NAVBAR--------*/
+  .navbar-link {
+    font-size: 18px;
+  }
+  .navbar a {
+    color: white;
+    margin: 0 6px 0 6px;
+  }
+  .search-button {
+    background-size: 29px;
+    width: 26px;
+    height: 26px;
+  }
+  /*--------SEARCHBAR--------*/
+  .form-container {
+    height: 30px; 
+  }
+  .form-control, .custom-select, .btn-light {
+    height: 30px;
+    width: 25%;
+    font-size: 15px;
+  }
+    /*--------CAROUSEL--------*/
+  .carousel-item {
+    height: 300px;
+  }
+  .d-block {
+    width: 100%;
+    height: 100%;
+  }
+  .d-none {
+    width: 100%;
+    display: unset;
+  }
+  .carousel-caption {
+    padding-bottom: 5px;
+  }
+  .carousel-item h5 {
+    margin: 0;
+    font-size: 29px;
+    font-weight: bold;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: black;
+  }
+  .carousel-control-next {
+    margin-top: 150px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-control-prev {
+    margin-top: 150px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-prev-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-indicators li {
+    height: 3.5px;
+    width: 35px;
+  }
+  /*--------CARD--------*/
+  .card-title {
+    font-size: 19px;
+  }
+  .card {
+    height: 29%;
+  }
+  .leyend1 {
+    color: white;
+    font-size: 13px;
+    margin: 0;
+  }
+  .leyend2 {
+    color: rgb(238, 9, 9);
+    font-size: 10px;
+    margin: 0;
+  }
+  .footer-links {
+    margin: 5px;
+  }
+  #logo {
+    width: 41px; 
+    margin: 0 7px;
+  }
+  .details-title {
+    font-size: 35px;
+  }
+  .details-description {
+    font-size: 18px;
+  }
+  .contains {
+    font-size: 19px;
+  }
+  .details-ul li {
+    font-size: 18px;
+    margin: 5px 8px 0 4px;
+  }
 }
 @media only screen and (min-width: 768px) {
+  /*--------ROOT--------*/
+  #root {
+    height: 100%;
+    min-height: 900px;
+  }
+  /*--------APP--------*/
+  .app {
+    width: 70%;
+  }
+  /*--------TITLE--------*/
+  .title {
+    font-size: 60px;
+    height: 60px;
+  }
+  /*--------NAVBAR--------*/
+  .navbar-link {
+    font-size: 23px;   
+  }
+  .navbar a {
+    color: white;
+    margin: 0 6px 0 6px;
+  }
+  .search-button {
+    background-size: 29px;
+    width: 26px;
+    height: 26px;
+  }
+  /*--------SEARCHBAR--------*/
+  .form-container {
+    height: 30px; 
+  }
+  .form-inline {
+    width: 400px;
+  }
+  
+  
+  /*--------CAROUSEL--------*/
   .carousel-item {
     height: 350px;
   }
@@ -307,234 +730,117 @@
     height: 3.5px;
     width: 35px;
   }
-}
-/*-------- GRID -------*/
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.582);
-  padding: 2px;
-  overflow: scroll;
-}
-.card {
-  display: flex;
-  justify-content: center;
-  border-radius: 4px;
-  margin: 0.204%;
-  width: 19.594%;
-  height: 25%;
-  border: none;
-  background-color: #7c4848e5;
-  border: 2px solid rgb(10, 10, 10);
-  /* border-radius: 4px; */
-}
-.card:hover {
-  transform: translateY(-3px);
-}
-.card-img {
-  width: 100%;
-  height: 100%;
-}
-.card-img-overlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  padding: 0px;
-} 
-.card-link {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 90%;
-  order: 2;
-}
-.card-title {
-  order: 2;
-  /* justify-self: center; */
-  font-family: marvelFont;
-  text-transform: uppercase;
-  letter-spacing: 1.5px; 
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 0;  
-  line-height: 0.7;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 0.7px;
-  -webkit-text-stroke-color: black;
-}
-.close {
-  align-self: flex-end;
-  object-position: 10px;
-  order: 1;
-  color: #000;
-  text-shadow: none;
-  opacity: 0.6;
-  line-height: 0.49;
-}
-.close:hover {
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 0.7px;
-  -webkit-text-stroke-color: black;
-}
-/*-------- DETAILS -------*/
-.details-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.452);
-  padding: 2px;
-}
-.details-img {
-  width: 70%;  
-  border: 3px solid black;
-  border-radius: 7px;
-}
-.details-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(102, 103, 104, 0.959);
-  width: 100%;
-  height: 100%;
-  margin: 4px;
-  border: 2px solid rgb(190, 189, 189);
-  border-radius: 7px;
-}
-.details-title {
-  font-family: marvelFont;
-  text-transform: uppercase;
-  letter-spacing: 1.5px; 
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
-  margin: 2px 0 5px 0;  
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 0.7px;
-  -webkit-text-stroke-color: black;
-}
-.details-description {
-  padding: 0 5px 0 7px;
-  font-weight: bold;
-  color: rgb(190, 189, 189);
-  font-family:  fantasy;
-  font-size: 15px;
-}
-.contains {
-  align-self: flex-start;
-  font-family: fantasy;
-  color: rgb(190, 189, 189);
-  padding-left: 5px;
-  margin-bottom: 0;
-  font-size: 15px;
-  text-decoration: underline;
-}
-.details-ul {
-  color: rgb(190, 189, 189);
-  display: flex;
-  flex-direction: row;
-  padding-left: 10px;
-  justify-content: center;
-  width: 100%;
-  font-family: fantasy;
-  font-size: 17px;
-  list-style: none;
-}
-.details-ul li {
-  font-size: 15px;
-  margin: 5px 10px 0 5px;
-}
-.details-ul li:first-child {
-  margin-left: 10px;
-}
-
-/*-------- HELP -------*/
-.help {
-  display: flex;
-  flex-direction: column;
-  justify-items: stretch;
-  overflow: scroll;
-}
-.help img {
-  width: 100%;
-}
-/*-------- FOOTER -------*/
-.footer {
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.leyend1 {
-  color: white;
-  font-size: 11px;
-  margin: 0;
-}
-.leyend2 {
-  color: rgb(238, 9, 9);
-  font-size: 9px;
-  margin: 0;
-}
-.footer-links {
-  margin: 5px;
-}
-#logo {
-  width: 35px; 
-  margin: 0 7px;
-}
-@media only screen and (min-width: 600px) {
+  /*--------CARD--------*/
   .card-title {
-    font-size: 19px;
+    font-size: 22px;
   }
   .leyend1 {
     color: white;
-    font-size: 13px;
+    font-size: 15px;
     margin: 0;
   }
   .leyend2 {
     color: rgb(238, 9, 9);
-    font-size: 10px;
+    font-size: 14px;
     margin: 0;
   }
   .footer-links {
     margin: 5px;
   }
   #logo {
-    width: 41px; 
+    width: 50px; 
     margin: 0 7px;
   }
   .details-title {
-    font-size: 35px;
+    font-size: 50px;
   }
   .details-description {
-    font-size: 18px;
+    font-size: 23px;
   }
   .contains {
-    font-size: 19px;
-  }
-  .details-ul {
-    padding-left: 10px;
-    font-size: 20px;
+    font-size: 21px;
   }
   .details-ul li {
-    font-size: 19px;
-    margin: 5px 8px 0 4px;
-  }
-  .details-ul li:first-child {
-    margin-left: 10px;
+    font-size: 23px;
+    margin: 5px 10px 0 5px;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
+  /*--------ROOT--------*/
+  #root {
+    height: 100%;
+    min-height: 1200px;
+  }
+  /*--------APP--------*/
+  .app {
+    width: 65%;
+  }
+  /*--------TITLE--------*/
+  .title {
+    font-size: 60px;
+    height: 60px;
+  }
+  /*--------NAVBAR--------*/
+  .navbar-link {
+    font-size: 23px;   
+  }
+  .navbar a {
+    color: white;
+    margin: 0 6px 0 6px;
+  }
+  .search-button {
+    background-size: 29px;
+    width: 26px;
+    height: 26px;
+  }
+  /*--------CAROUSEL--------*/
+  .carousel-item {
+    height: 461px;
+  }
+  .d-block {
+    width: 100%;
+    height: 100%;
+  }
+  .carousel-item h5 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: black;
+  }
+  .carousel-control-next {
+    margin-top: 175px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-control-prev {
+    margin-top: 175px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-prev-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-indicators li {
+    height: 3.5px;
+    width: 35px;
+  }
+  /*--------CARD--------*/
   .card-title {
     font-size: 22px;
+  }
+  .card {
+    height: 22%;
+    width: 19.60%;
   }
   .leyend1 {
     color: white;

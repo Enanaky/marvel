@@ -6,13 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
+  <BrowserRouter basename={process.env.PUBLIC_URL + '/'}> 
     <App  />
   </BrowserRouter>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// basename={process.env.PUBLIC_URL + '/' IT'S FOR MAKE IT WORK ON GITHUB PAGES DEPLOYMENT
 serviceWorker.unregister();

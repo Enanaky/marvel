@@ -8,7 +8,8 @@ export default function Characters(props) {
     const imgUrl = 'thumbnail.path';
     const extension = 'thumbnail.extension';
     const imgFormat = '/standard_xlarge.';
-
+    
+    
     return (props.characters.map(item => {  
       return item.visible && (
         <Card 

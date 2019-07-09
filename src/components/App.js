@@ -38,7 +38,6 @@ function App() {
     } else {      
       const copy = characters.map(character => {
         if(character.data.name === capital_letters(data)) {
-          console.log(' character yala');          
           gotIt = true;
           return {
             ...character,
@@ -60,7 +59,6 @@ function App() {
     } else {      
       const copy = events.map(event => {
         if(event.data.title === capital_letters(data)) {
-          console.log('evento yala');          
           gotIt = true;
           return {
             ...event,
@@ -84,10 +82,8 @@ function App() {
             const copyCharacters = [...characters, {data: character.data.results[0], type: option, visible: true} ];
             setCharacters(copyCharacters);
           } else {
-            console.log('character search error');//INSERT POPUPT HERE
           }
         }catch(err) {
-          console.log(err);          
         }
       break;
       case "event":
@@ -97,11 +93,9 @@ function App() {
             const copyEvents = [...events, {data: event.data.results[0], type: option, visible: true} ];
             setEvents(copyEvents);
           } else {
-            console.log('event search error');//INSERT POPUPT HERE
           }
           
         }catch(err) {
-          console.log(err);
         }
         break;
       default:
@@ -110,7 +104,6 @@ function App() {
   }
   function hideCard(n) {
     const copyCharacters = characters.map(character => {
-      console.log(character);
       
       if(character.data.id === n) {
         return {
@@ -153,9 +146,6 @@ function App() {
     
   }
   useEffect(() => {
-    console.log('characters => ', characters);
-    console.log('events => ', events);
-    console.log('details => ', details);    
   });
 
   return (

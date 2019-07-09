@@ -2,11 +2,20 @@ import React from 'react';
 
 export default function Details(props) {
     
+  
+  
+  
   if (props.details) {
+    const img = props.details.data.thumbnail.path+'.'+props.details.data.thumbnail.extension;
+
+    const vevo = img.slice(4,img.length);
+    const lala = `https${vevo}`;
+    
+
     if(props.details.type === 'character') {
       return (
         <div className="details-container">
-          <img className="details-img" src={`${props.details.data.thumbnail.path}.${props.details.data.thumbnail.extension}`} alt="..."/>
+          <img className="details-img" src={lala} alt="..."/>
           <div className="details-data">
             <h1 className="details-title">{props.details.data.name}</h1>
             <p className="details-description">{props.details.data.description}</p>
@@ -24,7 +33,7 @@ export default function Details(props) {
     } else {
       return (
         <div className="details-container">
-          <img className="details-img" src={`${props.details.data.thumbnail.path}.${props.details.data.thumbnail.extension}`} alt="..."/>
+          <img className="details-img" src={lala} alt="..."/>
           <div className="details-data">
             <h1 className="details-title">{props.details.data.title}</h1>
             <p className="details-description">{props.details.data.description}</p>
