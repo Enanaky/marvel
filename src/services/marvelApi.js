@@ -3,20 +3,20 @@ const apiKey = '&apikey=10ac447eeaab932197ccab181c31c749';
 // const orderLimit = '?orderBy=name&limit=100';
 
 const getEventById = (id) => {
-	return fetch(`http://gateway.marvel.com/v1/public/events/${id}?${apiKey}`)
+	return fetch(`https://gateway.marvel.com:443/v1/public/events/${id}?${apiKey}`)
 		.then(res => res.json());	
 }
 const getEventByName = (name) => {
-	return fetch(`http://gateway.marvel.com/v1/public/events?name=${name}&${apiKey}`)
+	return fetch(`https://gateway.marvel.com:443/v1/public/events?name=${name}&${apiKey}`)
 		.then(res => res.json());	
 }
 
 const getCharacterById = (id) => {
-	return fetch(`http://gateway.marvel.com/v1/public/characters/${id}?${apiKey}`)
+	return fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?${apiKey}`)
 		.then(res => res.json());
 }
 const getCharacterByName = (name) => {
-	return fetch(`http://gateway.marvel.com/v1/public/characters?name=${name}&${apiKey}`)
+	return fetch(`https://gateway.marvel.com:443/v1/public/characters?name=${name}&${apiKey}`)
 		.then(res => res.json());
 }
 const getAll = () => {
