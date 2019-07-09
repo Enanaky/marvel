@@ -49,11 +49,11 @@
 }
 .navbar a {
   color: white;
-  margin: 0 10px 0 10px;
+  margin: 0 5px 0 5px;
 }
 .navbar-link {
   font: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
-  font-size: 23px;
+  font-size: 15px;
   color: lightgray;
   text-decoration: none;
   margin: 0;
@@ -73,6 +73,27 @@
   height: 26px;
   border: none;
 }
+.navbar.navbar-light {
+  padding: 8px 5px;
+}
+@media only screen and (min-width: 600px) {
+  .navbar-link {
+      font-size: 18px;
+  }
+  .navbar a {
+    color: white;
+    margin: 0 6px 0 6px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .navbar-link {
+      font-size: 23px;   
+  }
+  .navbar a {
+    color: white;
+    margin: 0 6px 0 6px;
+  }
+}
 /*-------- Collapse searchBar --------*/
 .collapse {
   width: 100%;
@@ -87,13 +108,16 @@
 }
 .form-inline {
   height: 32px;
-  width: px;
+  /* width: 100%; */
   align-self: center;
+  display: flex;
+  justify-content: center;
 }
 .form-control, .custom-select, .btn-light{
   background-color: #ffffff45;
   color: white;
   padding: 0px;
+  width: 30%;
   margin-left: 3px;
   height: 30px;
   border: none;
@@ -113,7 +137,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* min-height: 900px; */
   margin: 0 5px 0 5px;
   overflow: scroll;
   background-image: url('../media/backgroundImg2.jpg');
@@ -136,15 +159,31 @@
   border-bottom: 2px solid black;
 }
 .carousel-item {
-  height: 410px;
+  height: 250px;
 }
 .d-block {
   width: 100%;
   height: 100%;
 }
+.d-none {
+  width: 100%;
+  display: unset!important;
+}
+.carousel-caption {
+  padding-bottom: 5px;
+  width: 100%;
+  position: absolute;
+  right: 0%;
+  bottom: 20px;
+  left: 0%;
+  z-index: 10;
+  padding-top: 20px;
+  color: #fff;
+  text-align: center;
+}
 .carousel-item h5 {
   margin: 0;
-  font-size: 30px;
+  font-size: 21px;
   font-weight: bold;
   color: black;
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
@@ -152,28 +191,122 @@
   -webkit-text-stroke-color: black;
 }
 .carousel-control-next {
-  margin-top: 190px;
+  margin-top: 120px;
   width: 40px;
   height: 20px;
   opacity: .7;
 }
 .carousel-control-next-icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .carousel-control-prev {
-  margin-top: 190px;
+  margin-top: 120px;
   width: 40px;
   height: 20px;
   opacity: .7;
 }
 .carousel-control-prev-icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+}
+.carousel-indicators {
+  margin: 0 auto 3px;
 }
 .carousel-indicators li {
   height: 3.5px;
   width: 35px;
+}
+@media only screen and (min-width: 600px) {
+  .carousel-item {
+    height: 300px;
+  }
+  .d-block {
+    width: 100%;
+    height: 100%;
+  }
+  .d-none {
+    width: 100%;
+    display: unset;
+  }
+  .carousel-caption {
+    padding-bottom: 5px;
+  }
+  .carousel-item h5 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: black;
+  }
+  .carousel-control-next {
+    margin-top: 150px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-control-prev {
+    margin-top: 150px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-prev-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-indicators li {
+    height: 3.5px;
+    width: 35px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .carousel-item {
+    height: 350px;
+  }
+  .d-block {
+    width: 100%;
+    height: 100%;
+  }
+  .carousel-item h5 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: black;
+  }
+  .carousel-control-next {
+    margin-top: 175px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-control-prev {
+    margin-top: 175px;
+    width: 40px;
+    height: 20px;
+    opacity: .7;
+  }
+  .carousel-control-prev-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-indicators li {
+    height: 3.5px;
+    width: 35px;
+  }
 }
 /*-------- GRID -------*/
 .container {
@@ -192,7 +325,7 @@
   border-radius: 4px;
   margin: 0.204%;
   width: 19.594%;
-  height: 197px;
+  height: 25%;
   border: none;
   background-color: #7c4848e5;
   border: 2px solid rgb(10, 10, 10);
@@ -227,7 +360,7 @@
   font-family: marvelFont;
   text-transform: uppercase;
   letter-spacing: 1.5px; 
-  font-size: 23px;
+  font-size: 16px;
   font-weight: bold;
   color: white;
   margin-bottom: 0;  
@@ -270,6 +403,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgba(102, 103, 104, 0.959);
+  width: 100%;
   height: 100%;
   margin: 4px;
   border: 2px solid rgb(190, 189, 189);
@@ -279,10 +413,10 @@
   font-family: marvelFont;
   text-transform: uppercase;
   letter-spacing: 1.5px; 
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
   color: white;
-  margin-bottom: 0;  
+  margin: 2px 0 5px 0;  
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 0.7px;
   -webkit-text-stroke-color: black;
@@ -292,25 +426,34 @@
   font-weight: bold;
   color: rgb(190, 189, 189);
   font-family:  fantasy;
-  font-size: 23px;
+  font-size: 15px;
+}
+.contains {
+  align-self: flex-start;
+  font-family: fantasy;
+  color: rgb(190, 189, 189);
+  padding-left: 5px;
+  margin-bottom: 0;
+  font-size: 15px;
+  text-decoration: underline;
 }
 .details-ul {
   color: rgb(190, 189, 189);
-
   display: flex;
   flex-direction: row;
   padding-left: 10px;
+  justify-content: center;
   width: 100%;
   font-family: fantasy;
-  font-size: 26px;
+  font-size: 17px;
   list-style: none;
 }
 .details-ul li {
-  font-size: 20px;
-  margin: 5px 20px 0 10px;
+  font-size: 15px;
+  margin: 5px 10px 0 5px;
 }
 .details-ul li:first-child {
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 /*-------- HELP -------*/
@@ -326,7 +469,108 @@
 /*-------- FOOTER -------*/
 .footer {
   margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leyend1 {
+  color: white;
+  font-size: 11px;
+  margin: 0;
+}
+.leyend2 {
+  color: rgb(238, 9, 9);
+  font-size: 9px;
+  margin: 0;
+}
+.footer-links {
+  margin: 5px;
 }
 #logo {
-  width: 50px; 
+  width: 35px; 
+  margin: 0 7px;
+}
+@media only screen and (min-width: 600px) {
+  .card-title {
+    font-size: 19px;
+  }
+  .leyend1 {
+    color: white;
+    font-size: 13px;
+    margin: 0;
+  }
+  .leyend2 {
+    color: rgb(238, 9, 9);
+    font-size: 10px;
+    margin: 0;
+  }
+  .footer-links {
+    margin: 5px;
+  }
+  #logo {
+    width: 41px; 
+    margin: 0 7px;
+  }
+  .details-title {
+    font-size: 35px;
+  }
+  .details-description {
+    font-size: 18px;
+  }
+  .contains {
+    font-size: 19px;
+  }
+  .details-ul {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .details-ul li {
+    font-size: 19px;
+    margin: 5px 8px 0 4px;
+  }
+  .details-ul li:first-child {
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .card-title {
+    font-size: 22px;
+  }
+  .leyend1 {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+  }
+  .leyend2 {
+    color: rgb(238, 9, 9);
+    font-size: 14px;
+    margin: 0;
+  }
+  .footer-links {
+    margin: 5px;
+  }
+  #logo {
+    width: 50px; 
+    margin: 0 7px;
+  }
+  .details-title {
+    font-size: 50px;
+  }
+  .details-description {
+    font-size: 23px;
+  }
+  .contains {
+    font-size: 21px;
+  }
+  .details-ul {
+    padding-left: 10px;
+    font-size: 26px;
+  }
+  .details-ul li {
+    font-size: 21px;
+    margin: 5px 20px 0 10px;
+  }
+  .details-ul li:first-child {
+    margin-left: 30px;
+  }
 }
