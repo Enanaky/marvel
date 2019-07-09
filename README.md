@@ -1,3 +1,19 @@
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/2880px-MarvelLogo.svg.png" width="850" height="200" />
+
+# https://enanaky.github.io/marvel/
+
+## Marvel Heroes is a responsive React SPA which consume data from marvel API.
+
+* Hooks state manajement.
+* Routes with react-router-dom.
+* Async/await functions.
+* Axios.
+* Bootstrap.
+* Handle-made CSS+flexbox.
+
+### This little project was made for academics pourposes.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
