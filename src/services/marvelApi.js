@@ -10,7 +10,6 @@ const getEventByName = (name) => {
 	return fetch(`http://gateway.marvel.com/v1/public/events?name=${name}&${apiKey}`)
 		.then(res => res.json());	
 }
-// https://gateway.marvel.com:443/v1/public/events?name=Infinity%20war&apikey=10ac447eeaab932197ccab181c31c749
 
 const getCharacterById = (id) => {
 	return fetch(`http://gateway.marvel.com/v1/public/characters/${id}?${apiKey}`)
@@ -20,13 +19,17 @@ const getCharacterByName = (name) => {
 	return fetch(`http://gateway.marvel.com/v1/public/characters?name=${name}&${apiKey}`)
 		.then(res => res.json());
 }
-// https://gateway.marvel.com:443/v1/public/characters?name=thor&apikey=10ac447eeaab932197ccab181c31c749
+const getAll = () => {
+	return fetch(`https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=75&apikey=10ac447eeaab932197ccab181c31c749`)
+		.then(res => res.json());
+}
 
 export default {
       getEventById,
       getEventByName,
 	getCharacterById,
-	getCharacterByName,
+      getCharacterByName,
+      getAll,
 };
   //
   // axios.get('https://gateway.marvel.com:443/v1/public/events/29/characters?limit=100&apikey=10ac447eeaab932197ccab181c31c749')
@@ -34,10 +37,10 @@ export default {
   //   console.log(response);
   // })
   //All the events
-  // axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=75&&apikey=10ac447eeaab932197ccab181c31c749')
-  //   .then(function (response) {
-  //   console.log("all events",response);
-  // })
+//   axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=75&&apikey=10ac447eeaab932197ccab181c31c749')
+//     .then(function (response) {
+//     console.log("all events",response);
+//   })
   //0-30 events
   // axios.get('https://gateway.marvel.com:443/v1/public/events?orderBy=name&limit=10&apikey=10ac447eeaab932197ccab181c31c749')
   // .then(function (response) {

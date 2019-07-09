@@ -11,13 +11,15 @@ export default function Events(props) {
 
     return (props.events.map(item => {  
       return item.visible && (
-        <Card 
+        <Card
+          type="event"
           key={item.data.title}
           item={item}
           imgUrl={imgUrl}
           extension={extension}
           imgFormat={imgFormat}
           hideCard={props.hideCard}
+          showItInDetails={props.showItInDetails}
         />
       );
     })).filter(Boolean);

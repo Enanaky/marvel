@@ -10,9 +10,12 @@ export default class SearchBar extends React.Component {
     e.preventDefault();
     //Take the data submitted.
     const data = this.data.current.value;
+    console.log(this.option.current.value);
+    
     const option = this.option.current.value;
     //Call searchHandler function
     this.props.searchHandler(data, option);
+    
     e.currentTarget.reset();   
   }
   render() {
@@ -31,7 +34,6 @@ export default class SearchBar extends React.Component {
           <select className="custom-select" id="inputGroupSelect01" ref={this.option}>
             <option value="character">Character</option>
             <option value="event">Event</option>
-            <option value="all-events">All Events</option>
           </select>
           <button className="btn btn-light" type="submit" value="">Search</button>
         </form>

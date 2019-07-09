@@ -12,12 +12,14 @@ export default function Characters(props) {
     return (props.characters.map(item => {  
       return item.visible && (
         <Card 
+          type="character"
           key={item.data.name}
           item={item}
           imgUrl={imgUrl}
           extension={extension}
           imgFormat={imgFormat}
           hideCard={props.hideCard}
+          showItInDetails={props.showItInDetails}
         />
       );
     })).filter(Boolean);

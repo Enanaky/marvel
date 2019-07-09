@@ -60,6 +60,7 @@
 }
 .navbar-link:hover {
   color: white;
+  text-decoration: underline red;
 }
 .active {
   color: red !important;
@@ -111,8 +112,8 @@
 .body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  min-height: 500px;
+  height: 100%;
+  /* min-height: 900px; */
   margin: 0 5px 0 5px;
   overflow: scroll;
   background-image: url('../media/backgroundImg2.jpg');
@@ -131,7 +132,7 @@
 /*-------- CAROUSEL --------*/
 .bd-example {
   width: 100%;
-  /* max-height: 414px; */ 
+  height: 50%; 
   border-bottom: 2px solid black;
 }
 .carousel-item {
@@ -213,9 +214,16 @@
   background-color: transparent;
   padding: 0px;
 } 
+.card-link {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 90%;
+  order: 2;
+}
 .card-title {
   order: 2;
-  align-self: center;
+  /* justify-self: center; */
   font-family: marvelFont;
   text-transform: uppercase;
   letter-spacing: 1.5px; 
@@ -242,7 +250,79 @@
   -webkit-text-stroke-width: 0.7px;
   -webkit-text-stroke-color: black;
 }
+/*-------- DETAILS -------*/
+.details-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.452);
+  padding: 2px;
+}
+.details-img {
+  width: 70%;  
+  border: 3px solid black;
+  border-radius: 7px;
+}
+.details-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(102, 103, 104, 0.959);
+  height: 100%;
+  margin: 4px;
+  border: 2px solid rgb(190, 189, 189);
+  border-radius: 7px;
+}
+.details-title {
+  font-family: marvelFont;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; 
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;  
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.7px;
+  -webkit-text-stroke-color: black;
+}
+.details-description {
+  padding: 0 5px 0 7px;
+  font-weight: bold;
+  color: rgb(190, 189, 189);
+  font-family:  fantasy;
+  font-size: 23px;
+}
+.details-ul {
+  color: rgb(190, 189, 189);
 
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  width: 100%;
+  font-family: fantasy;
+  font-size: 26px;
+  list-style: none;
+}
+.details-ul li {
+  font-size: 20px;
+  margin: 5px 20px 0 10px;
+}
+.details-ul li:first-child {
+  margin-left: 30px;
+}
+
+/*-------- HELP -------*/
+.help {
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  overflow: scroll;
+}
+.help img {
+  width: 100%;
+}
 /*-------- FOOTER -------*/
 .footer {
   margin: 5px;

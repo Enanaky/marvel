@@ -11,9 +11,8 @@ export default function Navbar(props) {
     const events = document.querySelector('.navbar-events');
     const details = document.querySelector('.navbar-details');
     const help = document.querySelector('.navbar-help');
-    const about = document.querySelector('.navbar-about');
     
-    const navbar = [ home, char, events, details, help, about ];
+    const navbar = [ home, char, events, details, help ];
   
     navbar.forEach(item => {
       if (item === e.currentTarget) {
@@ -28,12 +27,11 @@ export default function Navbar(props) {
   return (
     <div className="navbar-container">
       <nav className="navbar navbar-light ">
-        <Link className="navbar-home active" onClick={(e) => handleClickNavigationEvent(e)} to="/">HOME</Link>
-        <Link className="navbar-characters" onClick={(e) => handleClickNavigationEvent(e)} to="/Characters">CHARACTERS</Link>
-        <Link className="navbar-events" onClick={(e) => handleClickNavigationEvent(e)} to="/Events">EVENTS</Link>
-        <Link className="navbar-details" onClick={(e) => handleClickNavigationEvent(e)} to="/Details">DETAILS</Link>
-        <Link className="navbar-help" onClick={(e) => handleClickNavigationEvent(e)} to="/Help">HELP</Link>
-        <Link className="navbar-about" onClick={(e) => handleClickNavigationEvent(e)} to="/About">ABOUT</Link>
+        <Link className="navbar-link navbar-home active" onClick={(e) => handleClickNavigationEvent(e)} to="/">HOME</Link>
+        <Link className="navbar-link navbar-characters" onClick={(e) => handleClickNavigationEvent(e)} to="/Characters">CHARACTERS</Link>
+        <Link className="navbar-link navbar-events" onClick={(e) => handleClickNavigationEvent(e)} to="/Events">EVENTS</Link>
+        <Link className="navbar-link navbar-details" onClick={(e) => handleClickNavigationEvent(e)} to="/Details">DETAILS</Link>
+        <Link className="navbar-link navbar-help" onClick={(e) => handleClickNavigationEvent(e)} to="/Help">HELP</Link>
         <button className="search-button" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"/>
       </nav>
       <div className="collapse" id="collapseExample">

@@ -8,7 +8,6 @@ import Home from './Home';
 import Characters from './Characters';
 import Events from './Events';
 import Details from './Details';
-import About from './About';
 import Help from './Help';
 import Footer from './Footer';
 
@@ -28,14 +27,10 @@ function App() {
   function searchHandler(data, option) {
     if (option === 'character') {
       checkCharactersState(data, option);
-      console.log('quiero un char');      
-    };
-    if (option === 'event') {
+    } else {
       checkEventsState(data, option);
-      console.log('quiero un evento');      
     }
   }
-
   function checkCharactersState(data, option) {
     let gotIt = false;
     if (characters.length === 0) {
@@ -70,9 +65,9 @@ function App() {
           return {
             ...event,
             visible: true,
-          };       
+          };  
         }
-        return events;      
+        return event;      
       });
       setEvents(copy);
       if (gotIt === false) {  
@@ -80,15 +75,13 @@ function App() {
       }
     }
   }
-
   async function searchIt(data, option) {
     switch (option) {
       case "character": 
         try{
           const character = await marvelApi.getCharacterByName(data);
-          console.log(character);
           if (character.data.results.length > 0) {
-            const copyCharacters = [...characters, {data: character.data.results[0], visible: true} ];
+            const copyCharacters = [...characters, {data: character.data.results[0], type: option, visible: true} ];
             setCharacters(copyCharacters);
           } else {
             console.log('character search error');//INSERT POPUPT HERE
@@ -100,9 +93,8 @@ function App() {
       case "event":
         try{
           const event = await marvelApi.getEventByName(data);
-          console.log(event.data.results[0]);
           if (event.data.results.length > 0) {
-            const copyEvents = [...events, {data: event.data.results[0], visible: true} ];
+            const copyEvents = [...events, {data: event.data.results[0], type: option, visible: true} ];
             setEvents(copyEvents);
           } else {
             console.log('event search error');//INSERT POPUPT HERE
@@ -112,17 +104,15 @@ function App() {
           console.log(err);
         }
         break;
-      case "all-events":
-        console.log('todos los eventos');
-        
-        break;
       default:
         break;
     }
   }
-  function hideCard(id) {
+  function hideCard(n) {
     const copyCharacters = characters.map(character => {
-      if(character.data.id === id) {
+      console.log(character);
+      
+      if(character.data.id === n) {
         return {
           ...character,
           visible: false,
@@ -132,7 +122,7 @@ function App() {
     });
     setCharacters(copyCharacters);
     const copyEvents = events.map(event => {
-      if(event.data.id === id) {
+      if(event.data.id === n) {
         return {
           ...event,
           visible: false,
@@ -142,13 +132,30 @@ function App() {
     });
     setEvents(copyEvents);
   }
-
-  
+  function showItInDetails(item) {
+    setDetails(item);
+    document.querySelector('.navbar-home').classList.remove('active');
+    document.querySelector('.navbar-characters').classList.remove('active');
+    document.querySelector('.navbar-events').classList.remove('active');
+    document.querySelector('.navbar-details').classList.add('active');
+    document.querySelector('.navbar-help').classList.remove('active');
+  }
+  function carouselToGrid(item){
+    if (item.type === 'character') {
+      searchHandler(item.name, item.type);
+      document.querySelector('.navbar-home').classList.remove('active');
+      document.querySelector('.navbar-characters').classList.add('active');
+    } else {
+      searchHandler(item.name, item.type);
+      document.querySelector('.navbar-home').classList.remove('active');
+      document.querySelector('.navbar-events').classList.remove('active');
+    }
+    
+  }
   useEffect(() => {
     console.log('characters => ', characters);
     console.log('events => ', events);
-    console.log('details => ', details);
-    
+    console.log('details => ', details);    
   });
 
   return (
@@ -161,6 +168,7 @@ function App() {
             exact path="/" 
             render={props => <Home {...props}
             initialRandomData={initialRandomData}
+            carouselToGrid={carouselToGrid}
             />}
           />
           <Route 
@@ -169,6 +177,7 @@ function App() {
               <Characters {...props}
                 characters={characters}
                 hideCard={hideCard}
+                showItInDetails={showItInDetails}
               />
             )}
           />
@@ -178,6 +187,7 @@ function App() {
               <Events {...props}
                 events={events}
                 hideCard={hideCard}
+                showItInDetails={showItInDetails}
               />
             )}
           />
@@ -185,12 +195,6 @@ function App() {
             path="/Details" 
             render={props => <Details {...props}
             details={details}
-            />}
-          />
-          <Route 
-            path="/About" 
-            render={props => <About {...props}
-            //pass props here
             />}
           />
           <Route 

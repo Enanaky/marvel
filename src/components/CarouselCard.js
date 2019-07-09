@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CarouselCard(props) {
   
+
   return (
     <div className="bd-example" id="carousel">
       <div id={props.initialRandomData.name} className="carousel slide" data-ride="carousel">
@@ -14,19 +16,19 @@ export default function CarouselCard(props) {
           <div className="carousel-item active">
             <img src={props.initialRandomData.data[0].img} className="d-block w-100" alt="..."></img>
             <div className="carousel-caption d-none d-md-block">
-              <h5>{props.initialRandomData.data[0].name}</h5>
+              <Link className="carousel-title" to={props.initialRandomData.path} onClick={()=> props.carouselToGrid(props.initialRandomData.data[0])}><h5>{props.initialRandomData.data[0].name}</h5></Link>
             </div>
           </div>
           <div className="carousel-item">
             <img src={props.initialRandomData.data[1].img} className="d-block w-100" alt="..."></img>
             <div className="carousel-caption d-none d-md-block">
-              <h5>{props.initialRandomData.data[1].name}</h5>
+              <Link className="carousel-title" to={props.initialRandomData.path} onClick={()=> props.carouselToGrid(props.initialRandomData.data[1])}><h5>{props.initialRandomData.data[1].name}</h5></Link>
             </div>
           </div>
           <div className="carousel-item">
             <img src={props.initialRandomData.data[2].img} className="d-block w-100" alt="..."></img>
             <div className="carousel-caption d-none d-md-block">
-              <h5>{props.initialRandomData.data[2].name}</h5>
+              <Link className="carousel-title" to={props.initialRandomData.path} onClick={()=> props.carouselToGrid(props.initialRandomData.data[2])}><h5>{props.initialRandomData.data[2].name}</h5></Link>
             </div>
           </div>
         </div>
