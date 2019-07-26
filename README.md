@@ -2,7 +2,7 @@
 
 # https://enanaky.github.io/marvel/
 
-## Marvel Heroes is a responsive React SPA which consume data from marvel API.
+## Marvel Heroes is a React SPA which consume data from marvel API.
 
 * Function components.
 * Stateless components.
@@ -10,8 +10,9 @@
 * Routes with react-router-dom.
 * Async/await functions.
 * Axios.
+* Responsive.
 * Bootstrap.
-* Handmade CSS+flexbox.
+* CSS+flexbox.
 
 ### This little project was made for academics pourposes.
 
