@@ -4,12 +4,14 @@
 
 ## Marvel Heroes is a responsive React SPA which consume data from marvel API.
 
+* Function components.
+* Stateless components.
 * Hooks state manajement.
 * Routes with react-router-dom.
 * Async/await functions.
 * Axios.
 * Bootstrap.
-* Handle-made CSS+flexbox.
+* Handmade CSS+flexbox.
 
 ### This little project was made for academics pourposes.
 
